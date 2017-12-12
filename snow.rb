@@ -25,7 +25,7 @@ class Window
 		@@breeze_setting = get_option_from_answer_to("What kind of breeze?\n\n1) \"strong left\"\n2) \"moderate left\"\n3) \"light left\"\n4) \"light right\"\n5) \"moderate right\"\n6) \"strong right\"\n7) \"changing\"\n8) \"gusty\"\n9) \"none\"\n\n", "strong left", "moderate left", "light left", "light right", "moderate right", "strong right", "changing", "gusty", "none"); clear_screen
 		set_breeze
 		#structure settings
-		@@structures = get_option_from_answer_to("What kind of structures?\n\n1) \"spires\"\n2) \"stairs\"\n3) \"tiers\"\n4) \"upward staggered ladder\"\n5) \"downward staggered ladder\"\n6) \"funnel\"\n7) \"bottle\"\n8) \"funnel and flask\"\n9) \"high platform\"\n10) \"low platform\"\n11) \"platform and slides\"\n12) \"randomized platforms\"\n13) \"leaking bucket\"\n14) \"chambers\"\n15) \"house\"\n16) \"randomize\"\n17) \"spotify album cover box (@5x zoom)\"\n18) \"lonely phone booth\"\n19) \"none\"\n\n", "spires", "stairs", "tiers", "upward staggered ladder", "downward staggered ladder", "funnel", "bottle", "funnel and flask", "high platform", "low platform", "platform and slides", "randomized platforms", "leaking bucket", "chambers", "house", "randomize", "spotify album cover box (@5x zoom)", "lonely phone booth", "none")
+		@@structures = get_option_from_answer_to("What kind of structures?\n\n1) \"spires\"\n2) \"stairs\"\n3) \"tiers\"\n4) \"upward staggered ladder\"\n5) \"downward staggered ladder\"\n6) \"funnel\"\n7) \"bottle\"\n8) \"funnel and flask\"\n9) \"high platform\"\n10) \"low platform\"\n11) \"platform and slides\"\n12) \"randomized platforms\"\n13) \"leaking bucket\"\n14) \"chambers\"\n15) \"house\"\n16) \"randomize\"\n17) \"lonely phone booth\"\n18) \"none\"\n\n", "spires", "stairs", "tiers", "upward staggered ladder", "downward staggered ladder", "funnel", "bottle", "funnel and flask", "high platform", "low platform", "platform and slides", "randomized platforms", "leaking bucket", "chambers", "house", "randomize", "lonely phone booth", "none")
 		build_structures
 		select_randomized_structures if @@structures == "randomize" || @@structures == "randomized platforms"
 		#initialize
@@ -410,11 +410,6 @@ class Window
 				place_horizontal_line(0.49, 0.5, 0.49, "lock")	#chimney lip, left
 				place_horizontal_line(0.51, 0.5, 0.51, "lock")	#chimney lip, right		
 				place_horizontal_line(0, 1, 1)	#ground
-			when "spotify album cover box (@5x zoom)"
-				(@@height-40..@@height).each {|down| add_object(1, down, "║")} #left
-				(@@height-40..@@height).each {|down| add_object(79, down, "║")} #right
-				(1..79).each {|right| add_object(right,@@height-40,"═")} #top
-				(1..79).each {|right| add_object(right,@@height,"═")} #bottom
 			when "lonely phone booth"
 				place_vertical_line(0.4, 0.8, 1, "lock")  #left
 				place_vertical_line(0.6, 0.8, 1, "lock")  #right	
